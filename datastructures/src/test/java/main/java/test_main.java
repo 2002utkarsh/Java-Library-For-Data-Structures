@@ -359,8 +359,100 @@ public class test_main {
 
         System.out.println("++++++++++++++++++++++++++++++++++++++");
 
+        System.out.println();
+        System.out.println();
+        System.out.println("TESTING BINARY SEARCH TREE CLASS");
+        System.out.println("--------------------------------------");
 
 
+        BST bst = new BST();
+
+        // insert some nodes
+        bst.Insert(5);
+        bst.Insert(3);
+        bst.Insert(7);
+        bst.Insert(1);
+        bst.Insert(9);
+        bst.Insert(2);
+
+        // test the getRoot method
+        System.out.println("Root: " + bst.getRoot().data);
+
+        // test the search method
+        TNode node = bst.search(7);
+        if (node != null) {
+            System.out.println("Found node with value 7");
+        } else {
+            System.out.println("Node with value 7 not found");
+        }
+
+        // test deleting a node with no children
+        bst.Delete(2);
+
+        // test deleting a node with one child
+        bst.Delete(1);
+
+        // test deleting a node with two children
+        bst.Delete(5);
+
+        // test deleting a node that does not exist
+        bst.Delete(10);
+
+        // print the tree in-order
+        System.out.print("In-order traversal: ");
+        bst.printInOrder();
+        System.out.println();
+
+
+        System.out.println();
+        System.out.println();
+        System.out.println("TESTING AVL TREE CLASS");
+        System.out.println("--------------------------------------");
+
+
+        AVL tree = new AVL();
+
+        // Testing insert() method with integer values
+        tree.Insert(10);
+        tree.Insert(20);
+        tree.Insert(30);
+        tree.Insert(40);
+        tree.Insert(50);
+        tree.Insert(25);
+
+
+
+        // Testing insert() method with TNode objects
+        TNode node1 = new TNode(60);
+        TNode node2 = new TNode(70);
+        TNode node3 = new TNode(80);
+        tree.Insert(node1);
+        tree.Insert(node2);
+        tree.Insert(node3);
+
+        System.out.println();
+        System.out.println("Root: " + tree.root.data);
+        System.out.println();
+        // Printing out the tree in-order traversal
+        System.out.println("In-order traversal of the AVL tree:");
+        tree.InOrder(tree.root);
+
+        // Testing the balance factor of each node
+        System.out.println("Balance factor of each node:");
+        tree.PreOrder(tree.root);
+
+        // Testing the height of the tree
+        System.out.println("Height of the AVL tree: " + tree.height(tree.root));
+
+        // Testing search() method
+        TNode searchResult = tree.search(30);
+        System.out.println("Node found: " + searchResult.data);
+
+        // Testing delete() method
+        tree.Delete(20);
+        System.out.println("In-order traversal after deleting 20:");
+        tree.InOrder(tree.root);
+    
 
 
 
